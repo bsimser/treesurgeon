@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<project name="${projectName}" default="test" xmlns="http://nant.sf.net/schemas/nant.xsd">
+	<property name="build.dir" value="build" />
+	<property name="nant.settings.currentframework" value="net-3.5" />
+
+	<!-- User targets -->
+	<target name="clean" description="Delete Automated Build artifacts">
+		<delete dir="${build.dir}" if="$nantDeleteClause"/>
+	</target>
+
+	<target name="compile" description="Compiles using the AutomatedDebug Configuration">
+		<msbuild project="src\\${projectName}.sln">
+			<property name="Configuration" value="AutomatedDebug" />
+		</msbuild>
+	</target>
+
+	<target name="test" depends="compile, run-unit-tests" 
+		description="Compile and Run Tests" />
+		
+	<target name="full" depends="clean, test, dist"	description="Compiles, tests, and produces distributions" />
+
+	<!-- Internal targets -->
+	<target name="run-unit-tests">
+		<mkdir dir="${build.dir}\test-reports" />
+		<exec program="regsvr32" workingdir="tools\NCover" commandline="/s CoverLib.dll" />
+    <!-- This runs MbUnit through NCover.org version 1.3, giving coverage results. 
+			If you don't want to use NCover, delete this 'exec' instance, and use the plain NUnit one below -->
+    <exec program="tools\ncover\NCover.Console.exe"
+			workingdir="${build.dir}\Debug\UnitTests">
+      <arg value="//w &quot;.&quot;" />
+      <arg value="//x &quot;..\..\test-reports\Coverage.xml&quot;" />
+      <arg value="&quot;..\..\..\tools\mbunit\mbunit.cons.exe&quot;" />
+      <arg value="&quot;TreeSurgeon.UnitTests.dll&quot;" />
+    </exec>
+  </target>
+	
+	<target name="dist">
+		<copy todir="${build.dir}\dist">
+			<fileset basedir="${build.dir}\Debug\\${projectName}">
+				<include name="**\*"/>
+				<exclude name="**\*.pdb" />
+			</fileset>
+		</copy>
+		<zip zipfile="${build.dir}\\${projectName}.zip">
+			<fileset basedir="${build.dir}\dist">
+				<include name="**\*" />
+			</fileset>
+		</zip>
+	</target>
+	
+</project>

@@ -1,0 +1,47 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "${projectName}Console", "${projectName}Console\\${projectName}Console.csproj", "{$consoleGuid}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{$coreGuid}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{$unitTestGuid}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		AutomatedDebug = AutomatedDebug
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{$consoleGuid}.AutomatedDebug.ActiveCfg = AutomatedDebug|.NET
+		{$consoleGuid}.AutomatedDebug.Build.0 = AutomatedDebug|.NET
+		{$consoleGuid}.Debug.ActiveCfg = Debug|.NET
+		{$consoleGuid}.Debug.Build.0 = Debug|.NET
+		{$consoleGuid}.Release.ActiveCfg = Release|.NET
+		{$consoleGuid}.Release.Build.0 = Release|.NET
+		{$coreGuid}.AutomatedDebug.ActiveCfg = AutomatedDebug|.NET
+		{$coreGuid}.AutomatedDebug.Build.0 = AutomatedDebug|.NET
+		{$coreGuid}.Debug.ActiveCfg = Debug|.NET
+		{$coreGuid}.Debug.Build.0 = Debug|.NET
+		{$coreGuid}.Release.ActiveCfg = Release|.NET
+		{$coreGuid}.Release.Build.0 = Release|.NET
+		{$unitTestGuid}.AutomatedDebug.ActiveCfg = AutomatedDebug|.NET
+		{$unitTestGuid}.AutomatedDebug.Build.0 = AutomatedDebug|.NET
+		{$unitTestGuid}.Debug.ActiveCfg = Debug|.NET
+		{$unitTestGuid}.Debug.Build.0 = Debug|.NET
+		{$unitTestGuid}.Release.ActiveCfg = Release|.NET
+		{$unitTestGuid}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionItems) = postSolution
+		..\\${projectName}.build = ..\\${projectName}.build
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

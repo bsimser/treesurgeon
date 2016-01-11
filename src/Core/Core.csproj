@@ -1,0 +1,270 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{122C6B21-ECAE-4535-9B15-F379A866F12F}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>TreeSurgeon.Core</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>TreeSurgeon.Core</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AutomatedDebug|AnyCPU' ">
+    <OutputPath>..\..\build\Debug\Core\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Commons, Version=1.0.1106.21941, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Commons.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <Name>log4net</Name>
+      <HintPath>..\..\lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NVelocity">
+      <Name>NVelocity</Name>
+      <HintPath>..\..\lib\NVelocity.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>CommonAssemblyInfo.cs</Link>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Generators\Content\DefaultDirectoryCopier.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Generators\Content\DefaultVelocityTransformerConfig.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Generators\Content\FileGeneratorWithTransformer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Generators\Content\ICopyDirectories.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Generators\Content\ITransformFiles.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Generators\Content\IGenerateFiles.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Generators\Content\IConfigureTheTransformer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Generators\Content\LazilyInitialisingVelocityTransformer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Generators\IGenerateGuids.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Generators\StandardDotNetUpperCaseGuidGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IBuildDirectories.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IGenerateSolutionTrees.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SimpleDirectoryBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SimpleTreeGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TreeSurgeonFrontEnd.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\IExecuteProcesses.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\Log.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\ProcessExecutor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\ProcessInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\ProcessReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\ProcessResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="Resources\Templates\2003\AssemblyInfo.cs.vm" />
+    <None Include="Resources\Templates\2003\Sapling.build.mbunit.vm" />
+    <None Include="Resources\Templates\2003\Core.csproj.vm" />
+    <None Include="Resources\Templates\2003\go.bat.vm" />
+    <None Include="Resources\Templates\2003\HelloWorld.cs.vm" />
+    <None Include="Resources\Templates\2003\Sapling.build.nunit.vm" />
+    <None Include="Resources\Templates\2003\Sapling.sln.vm" />
+    <None Include="Resources\Templates\2003\SaplingConsole.csproj.vm" />
+    <None Include="Resources\Templates\2003\Test1.cs.vm" />
+    <None Include="Resources\Templates\2003\UnitTests.csproj.vm" />
+    <None Include="Resources\Templates\2005\AssemblyInfo.cs.vm" />
+    <None Include="Resources\Templates\2005\Sapling.build.mbunit.vm" />
+    <None Include="Resources\Templates\2005\Core.csproj.vm" />
+    <None Include="Resources\Templates\2005\go.bat.vm" />
+    <None Include="Resources\Templates\2005\HelloWorld.cs.vm" />
+    <None Include="Resources\Templates\2005\Sapling.build.nunit.vm" />
+    <None Include="Resources\Templates\2005\Sapling.sln.vm" />
+    <None Include="Resources\Templates\2005\SaplingConsole.csproj.vm" />
+    <None Include="Resources\Templates\2005\Test1.cs.vm" />
+    <None Include="Resources\Templates\2005\UnitTests.csproj.vm" />
+    <None Include="Resources\Templates\2008\AssemblyInfo.cs.vm" />
+    <None Include="Resources\Templates\2008\Sapling.build.mbunit.vm" />
+    <None Include="Resources\Templates\2008\Core.csproj.vm" />
+    <None Include="Resources\Templates\2008\go.bat.vm" />
+    <None Include="Resources\Templates\2008\HelloWorld.cs.vm" />
+    <None Include="Resources\Templates\2008\Sapling.build.nunit.vm" />
+    <None Include="Resources\Templates\2008\Sapling.sln.vm" />
+    <None Include="Resources\Templates\2008\SaplingConsole.csproj.vm" />
+    <None Include="Resources\Templates\2008\Test1.cs.vm" />
+    <None Include="Resources\Templates\2008\UnitTests.csproj.vm" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

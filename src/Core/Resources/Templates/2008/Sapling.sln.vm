@@ -1,0 +1,44 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "${projectName}Console", "${projectName}Console\\${projectName}Console.csproj", "{$consoleGuid}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{$coreGuid}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{$unitTestGuid}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0691ABF2-B3C7-43BF-9862-2D8D1299CE58}"
+	ProjectSection(SolutionItems) = preProject
+		..\\${projectName}.build = ..\\${projectName}.build
+		..\go.bat = ..\go.bat
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		AutomatedDebug|Any CPU = AutomatedDebug|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{$consoleGuid}.AutomatedDebug|Any CPU.ActiveCfg = AutomatedDebug|Any CPU
+		{$consoleGuid}.AutomatedDebug|Any CPU.Build.0 = AutomatedDebug|Any CPU
+		{$consoleGuid}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{$consoleGuid}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{$consoleGuid}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{$consoleGuid}.Release|Any CPU.Build.0 = Release|Any CPU	
+		{$coreGuid}.AutomatedDebug|Any CPU.ActiveCfg = AutomatedDebug|Any CPU
+		{$coreGuid}.AutomatedDebug|Any CPU.Build.0 = AutomatedDebug|Any CPU
+		{$coreGuid}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{$coreGuid}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{$coreGuid}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{$coreGuid}.Release|Any CPU.Build.0 = Release|Any CPU	
+		{$unitTestGuid}.AutomatedDebug|Any CPU.ActiveCfg = AutomatedDebug|Any CPU
+		{$unitTestGuid}.AutomatedDebug|Any CPU.Build.0 = AutomatedDebug|Any CPU
+		{$unitTestGuid}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{$unitTestGuid}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{$unitTestGuid}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{$unitTestGuid}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

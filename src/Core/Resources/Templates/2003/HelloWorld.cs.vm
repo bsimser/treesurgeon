@@ -1,0 +1,13 @@
+using System;
+
+namespace ${projectName}.${projectName}Console
+{
+	class HelloWorld
+	{
+		[STAThread]
+		static void Main(string[] args)
+		{
+			Console.WriteLine("Hello World");
+		}
+	}
+}
