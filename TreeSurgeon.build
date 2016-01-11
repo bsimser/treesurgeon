@@ -1,0 +1,138 @@
+<?xml version="1.0" ?>
+<project name="nant" default="test" xmlns="http://nant.sf.net/schemas/nant.xsd">
+
+	<property name="nant.settings.currentframework" value="net-3.5"/>
+	<property name="msbuild.exe" value="${framework::get-framework-directory(framework::get-target-framework())}\msbuild.exe" />
+	<property name="msbuild.verbosity" value="Quiet"/>
+	<property name="build.dir" value="build" />
+	<property name="verbose" value="false" />
+
+	<!-- User targets --> 
+	<target name="clean" description="Delete Automated Build artifacts">
+		<delete dir="${build.dir}" if="${directory::exists('build')}" verbose="${verbose}"/>
+	</target>
+	
+	<target name="compile" description="Compiles using the AutomatedDebug Configuration">
+		<exec program="${msbuild.exe}">
+			<arg value="src\TreeSurgeon.sln" />
+			<arg value="/p:Configuration=AutomatedDebug" />
+			<arg value="/v:${msbuild.verbosity}" />
+		</exec>
+	</target>
+		
+	<target name="test" depends="compile, run-unit-tests, run-acceptance-tests" description="Compile and Run Tests" />
+		
+	<target name="continuous-integration" depends="clean, continuous-integration-setup-versioning, test, dist, continuous-integration-publish" />
+	
+	<!-- Internal targets -->
+	<target name="run-unit-tests">
+		<mkdir dir="${build.dir}\test-reports" failonerror="false" />
+		<nunit2>
+			<formatter type="Xml" usefile="true" extension=".xml" outputdir="${build.dir}\test-reports" />
+			<test assemblyname="${build.dir}\Debug\UnitTests\TreeSurgeon.UnitTests.dll" />
+		</nunit2>
+	</target>
+
+	<target name="run-acceptance-tests">
+		<copy todir="${build.dir}\Debug\AcceptanceTests" verbose="${verbose}" >
+			<fileset basedir="${build.dir}\Debug\TreeSurgeonConsole">
+				<include name="**\*" />
+			</fileset>
+		</copy>
+		<mkdir dir="${build.dir}\test-reports" verbose="${verbose}" />
+		<nunit2>
+			<formatter type="Xml" usefile="true" extension=".xml" outputdir="${build.dir}\test-reports" />
+			<test assemblyname="${build.dir}\Debug\AcceptanceTests\TreeSurgeon.AcceptanceTests.dll" />
+		</nunit2>
+	</target>
+	
+	<target name="dist">
+		<!-- Binary zip -->
+		<copy todir="${build.dir}\dist" verbose="${verbose}">
+			<fileset basedir="${build.dir}\Debug\TreeSurgeonConsole">
+				<include name="**\*"/>
+				<exclude name="**\*.pdb" />
+				<exclude name="**\PostBuildEvent.bat" />
+			</fileset>
+		</copy>
+
+		<copy todir="${build.dir}\dist" verbose="${verbose}">
+			<fileset basedir="${build.dir}\Debug\WindowsUI">
+				<include name="**\*"/>
+				<exclude name="**\*.pdb" />
+				<exclude name="**\PostBuildEvent.bat" />
+			</fileset>
+		</copy>
+
+		<copy todir="${build.dir}\dist" file="license.txt" />
+		<copy file="tools\nant\license.html" tofile="${build.dir}\dist\nant-license.html" />
+		<copy file="tools\nunit\license.html" tofile="${build.dir}\dist\nunit-license.html" />
+		
+		<zip zipfile="${build.dir}\TreeSurgeon-${CCNetLabel}.zip" verbose="${verbose}">
+			<fileset basedir="${build.dir}\dist">
+				<include name="**\*" />
+			</fileset>
+		</zip>
+
+		<!-- Source Zip -->
+		<copy todir="${build.dir}\dist-src" verbose="${verbose}">
+			<fileset>
+				<include name="**\*"/>
+				<exclude name="build\**\*" />
+				<exclude name="dist" />
+				<exclude name="dist/**" />
+				<exclude name="src/*/bin" />
+				<exclude name="src/*/obj" />
+				<exclude name="src/*/bin/**" />
+				<exclude name="src/*/obj/**" />
+				<exclude name="**/*.suo" />
+				<exclude name="**/*.user" />
+				<exclude name="**/*.resharperoptions" />
+				<exclude name="src\_ReSharper.TreeSurgeon\**\*" />
+			</fileset>
+		</copy>
+
+		<zip zipfile="${build.dir}\TreeSurgeon-${CCNetLabel}.source.zip" verbose="${verbose}">
+			<fileset basedir="${build.dir}\dist-src">
+				<include name="**\*" />
+			</fileset>
+		</zip>
+
+		<!-- Installer -->
+		<exec program="tools\NSIS\makensis.exe" commandline="TreeSurgeon.nsi" verbose="${verbose}" />
+	</target>
+	
+	<target name="continuous-integration-setup-versioning">
+
+		<!-- set the build number format for TeamCity to use so we don't have to reconfigure the project when versions bump -->
+		<echo message="##teamcity[buildNumber '2.1.{build.number}']"/>
+	
+		<!-- have to set a NAnt property manually as the one coming back from TeamCity at this point is the original format -->
+		<property name="version.number" value="2.1.${build.number}" />
+	
+		<asminfo output="src/CommonAssemblyInfo.cs" language="CSharp">
+			<imports>
+				<import name="System.Reflection" />
+			</imports>
+			<attributes>
+				<attribute type="AssemblyVersionAttribute" value="${build.number}" />
+				<attribute type="AssemblyCopyrightAttribute" value="Copyright © 2007 - 2008 Bil Simser, Copyright © 2005 - 2006 Mike Roberts, ThoughtWorks Inc." />
+				<attribute type="AssemblyCompanyAttribute" value="ThoughtWorks" />
+				<attribute type="AssemblyProductAttribute" value="Tree Surgeon" />
+			</attributes>
+		</asminfo>
+
+	</target>
+		
+	<target name="continuous-integration-publish">
+		<property name="publish.dir" value="${CCNetArtifactDirectory}\${CCNetLabel}" />
+		<mkdir dir="${publish.dir}" />
+		<copy todir="${publish.dir}">
+			<fileset basedir="build">
+				<include name="*.exe"/>
+				<include name="*.zip"/>
+			</fileset>
+		</copy>			
+	</target>
+  
+</project>
